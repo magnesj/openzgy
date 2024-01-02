@@ -8,6 +8,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+include(FetchContent)
+
+FetchContent_Declare(open-zgy
+        GIT_REPOSITORY https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/open-zgy.git
+        GIT_TAG 1034b76d4691615c1bc0099c00ffd885cfe7008f
+        )
+FetchContent_MakeAvailable(open-zgy)
+
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-unused-parameter -Wno-unused-function -Wno-reorder -Wno-parentheses -Wno-switch -Werror"  )
 
@@ -45,8 +53,8 @@ target_include_directories(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
   PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/zfp/include
-  ${CMAKE_CURRENT_SOURCE_DIR}/open-zgy/native/src
-  ${CMAKE_CURRENT_SOURCE_DIR}/open-zgy/native/src/impl
+  ${open-zgy_SOURCE_DIR}/native/src
+  ${open-zgy_SOURCE_DIR}/native/src/impl
 )
 
 set(BUILD_TESTING "OFF" CACHE BOOL "No testing enabled" FORCE)
