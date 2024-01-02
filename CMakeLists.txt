@@ -13,6 +13,8 @@ include(FetchContent)
 FetchContent_Declare(open-zgy
         GIT_REPOSITORY https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/open-zgy.git
         GIT_TAG 1034b76d4691615c1bc0099c00ffd885cfe7008f
+        PATCH_COMMAND git apply ${CMAKE_CURRENT_SOURCE_DIR}/01-add-missing-include.patch 
+        UPDATE_DISCONNECTED 1
         )
 FetchContent_MakeAvailable(open-zgy)
 

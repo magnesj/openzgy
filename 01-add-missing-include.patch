@@ -1,0 +1,12 @@
+diff --git a/native/src/impl/structaccess.h b/native/src/impl/structaccess.h
+index 9e26255..d0b0579 100644
+--- a/native/src/impl/structaccess.h
++++ b/native/src/impl/structaccess.h
+@@ -21,6 +21,7 @@
+ #include <iomanip>
+ #include <cstring>
+ #include <type_traits>
++#include <cstdint>
+ 
+ /**
+  * \file structaccess.h
